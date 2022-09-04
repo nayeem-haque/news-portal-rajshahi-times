@@ -61,3 +61,36 @@ const displayCategoryNews = (news) => {
     categoryNews.appendChild(newsDiv);
   });
 };
+
+const displayModal = (id) => {
+  const url = `https://openapi.programming-hero.com/api/news/${id}`;
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => showNewsDetails(data.data));
+};
+
+const showNewsDetails = (news) => {
+  const showModal = document.getElementById("modal-body");
+  // console.log(news[0]);
+  showModal.innerHTML = `
+  <img src="${news[0].image_url}" alt="" width="600" height="400"> <br>
+  <div class="flex">
+    <div>
+    <img src="${news[0].author.img
+    }" alt="" width="50" height="30" style="border-radius: 50%;">
+    </div> &nbsp; &nbsp;
+    <div><span style="color:purple;font-weight:bold;">${news[0].author.name ? news[0].author.name : "Author not found"
+    }</span><br>
+    <span>${news[0].author.published_date
+      ? news[0].author.published_date
+      : "Date not found"
+    }</span>
+    </div>
+  </div> 
+  <br>
+  <h6 class="card-title">${news[0].title}</h6> <br>
+  <p><span style="font-weight:bold;">Read Details:</span> ${news[0].details}</p>
+  `;
+};
+
+loadCategory();
