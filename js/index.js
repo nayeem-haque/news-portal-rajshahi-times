@@ -54,7 +54,7 @@ const displayCategoryNews = (news) => {
             <span style="font-weight:bold;">&nbsp;&nbsp; Views: ${allNews.total_view ? allNews.total_view : "No Views"
       }</span>
             <label for="my-modal-6" onclick = "displayModal('${allNews._id
-      }')" class="btn btn-link modal-button bg-blue-700 rounded text-white p-1">Details</label>
+      }')" class="btn btn-link modal-button bg-blue-500 rounded-full text-white ml-20 ">Details</label>
           </div>
         </div>
     `;
